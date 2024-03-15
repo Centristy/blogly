@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, DateField, TextAreaField
+from wtforms import StringField, DateTimeField, TextAreaField
 from wtforms.validators import DataRequired
 import datetime
 
@@ -13,8 +13,8 @@ class UserAddForm(FlaskForm):
 class UserEditForm(FlaskForm):
     """Form for editing users."""
 
-    first_name = StringField('Username')
-    last_name = StringField('Password')
+    first_name = StringField('First Name')
+    last_name = StringField('Last Name')
     image_url = StringField('Image URL')
 
 
@@ -23,7 +23,7 @@ class PostAddForm(FlaskForm):
 
     title = StringField('Title', validators=[DataRequired()])
     content = TextAreaField('', validators=[DataRequired()])
-    date = DateField('Date', default=datetime.date.today())
+    date = DateTimeField('Date', default=datetime.datetime.now(), validators=[DataRequired()])
 
 
 class PostEditForm(FlaskForm):
@@ -31,3 +31,8 @@ class PostEditForm(FlaskForm):
 
     title = StringField('Title', validators=[DataRequired()])
     content = TextAreaField('', validators=[DataRequired()])
+
+
+class TagAddForm(FlaskForm):
+    """Form for adding users."""
+    name = StringField('Tag Name', validators=[DataRequired()])

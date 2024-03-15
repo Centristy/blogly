@@ -9,6 +9,15 @@
         class="card-image pt-3" height="150vw" width= "150vw"> </a>
 
     <br>
+
+    <a href="/users/{{user.id}}/delete" ><button class="btn btn-outline-danger btn-sm m-1 btn-block" type="button">
+        Delete
+    </button></a>
+    <a href = "/users/{{user.id}}/edit"><button  class="btn btn-outline-primary btn-sm m-1 btn-block" type="button">
+        Edit
+    </button> </a>
+
+    <br>
         
 </div>
 
@@ -29,6 +38,15 @@
             <h3>{{ post.title }}</h3>
             <p> {{post.content}}</p>
             <p> Date: {{post.date}}</p> 
+
+            <p class="tags"> Tags: 
+                {%  for tag in post.tags %}
+    
+                {{tag.name}}
+    
+                {% endfor %}
+    
+                </p>
 
             <a href="/users/{{user.id}}/posts/{{ post.id }}/edit"><button class="btn btn-outline-primary"> Edit</button></a>
         <a href="/users/{{user.id}}/posts/{{ post.id }}/delete"><button class="btn btn-outline-danger"> Delete</button></a>

@@ -93,17 +93,27 @@ nav form.navbar-form {
 }
 
 
-ul {
+ul{
     list-style-type: none; /* Remove bullets */
     color: rgb(18, 21, 39);
 }
 
 
-li {
+.userposts {
     border: 3px solid white;
     background-color: rgb(141, 214, 141);
     border-radius: 5px;
     padding: 20px;
     margin: 20 px;
     width: 80%;
+}
+
+.modal-backdrop {
+    z-index: -1;
+}
+
+.tags {
+    color: white;
+    font-size: 13px;
+    font-weight: 200;
 }

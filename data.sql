@@ -24,3 +24,19 @@ CREATE TABLE posts
     user_id INTEGER NOT NULL REFERENCES users(id)
 
 );
+
+
+CREATE TABLE tags
+(
+    id BIGSERIAL PRIMARY KEY,
+    name TEXT NOT NULL
+);
+
+
+CREATE TABLE post_tags
+(
+    id BIGSERIAL PRIMARY KEY,
+    post_id INTEGER NOT NULL REFERENCES posts(id),
+    tag_id INTEGER NOT NULL REFERENCES tags(id)
+
+);

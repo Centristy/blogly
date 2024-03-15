@@ -32,26 +32,14 @@
         <a href="/posts" class="navbar-brand">
             <span>Bulletin</span>
         </a>
+
+        <a href="/tags" class="navbar-brand">
+            <span>Search</span>
+        </a>
     </div>
     <ul class="nav navbar-nav navbar-right m-4 p-3">
 
-        <div class="modal fade" id="usersignup" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <form method="POST" id="new_deck">
-                        {{ form.hidden_tag() }}
-                        {% for field in form if field.widget.input_type != 'hidden' %}
-                        {% for error in field.errors %}
-                            <span class="text-danger">{{ error }}</span>
-                        {% endfor %}
-                        {{ field(placeholder=field.label.text, class="form-control") }}
-                        <br>
-                        {% endfor %}
-                        <button class="btn btn-success btn-lg btn-block">Add New User</button>
-                    </form>
-                </div>
-            </div>
-        </div>  
+
 
 
 </div>
