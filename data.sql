@@ -13,3 +13,14 @@ CREATE TABLE users
     image_url TEXT
 
 );
+
+
+CREATE TABLE posts
+(
+    id BIGSERIAL PRIMARY KEY,
+    title TEXT NOT NULL,
+    content TEXT NOT NULL,
+    date TIMESTAMP NOT NULL DEFAULT (CURRENT_DATE),
+    user_id INTEGER NOT NULL REFERENCES users(id)
+
+);

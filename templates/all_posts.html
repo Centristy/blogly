@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class = "posts">
+    <ul>
+        {% for post in posts %}
+        <li class="userposts">
+
+            <h3>{{ post.title }}</h3>
+            <p> {{post.content}}</p>
+            <p> Date: {{post.date}}</p> 
+            <p>Posted by: {{ post.users.first_name}} {{ post.users.last_name}}</p> 
+
+        </li>
+
+        <hr>
+        <br>
+
+        {% endfor %}
+
+    </ul>
+</div>
+
+
+{% endblock %}

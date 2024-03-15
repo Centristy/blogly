@@ -17,6 +17,8 @@
 <link rel="stylesheet" href="/static/stylesheet/style.css">
 <link rel="shortcut icon" href="/static/favicon.ico">
 
+<h2 class= m-5> Blogly </h2>
+
 </head>
 
 <body class="{% block body_class %}{% endblock %}">
@@ -24,66 +26,38 @@
 <div class="container-fluid">
     <div class="navbar-header">
         <a href="/" class="navbar-brand">
-            <span>Blogly</span>
+            <span>Home</span>
+        </a>
+
+        <a href="/posts" class="navbar-brand">
+            <span>Bulletin</span>
         </a>
     </div>
     <ul class="nav navbar-nav navbar-right m-4 p-3">
 
-            <button id="newdeck" class="btn btn-outline-success" type="button" data-toggle="modal" data-target="#usersignup">
-                New User
-            </button>
-            
-
-
-        <div class="modal fade" id="usersignup" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <form method="POST" id="new_deck">
-                    {{ form.hidden_tag() }}
-                    {% for field in form if field.widget.input_type != 'hidden' %}
-                    {% for error in field.errors %}
-                        <span class="text-danger">{{ error }}</span>
-                    {% endfor %}
-                    {{ field(placeholder=field.label.text, class="form-control") }}
-                    <br>
-                    {% endfor %}
-                    <a href="/"><button class="btn btn-success btn-lg btn-block">Add New User</button></a>
-                </form>
+        <div class="modal fade" id="usersignup" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <form method="POST" id="new_deck">
+                        {{ form.hidden_tag() }}
+                        {% for field in form if field.widget.input_type != 'hidden' %}
+                        {% for error in field.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                        {{ field(placeholder=field.label.text, class="form-control") }}
+                        <br>
+                        {% endfor %}
+                        <button class="btn btn-success btn-lg btn-block">Add New User</button>
+                    </form>
+                </div>
             </div>
-        </div>
-    </div>  
-
+        </div>  
 
 
 </div>
 </nav>
 
-<div class="row m-5">
 
-{% for user in users %}
-    <div class="card user-card shadow col-md-4 col-lg-3 col-xl-2 col-sm-10 border border-0 bg-transparent" >
-        <p class="name">{{ user.first_name }} {{ user.last_name }}</p>
-        <img src="{{ user.image_url }}"
-            class="card-image pt-3" height="150vw" width= "150vw">
-            <a href="/user/delete/{{user.id}}">
-                <button class="btn btn-danger btn-lg btn-block" type="button">
-                    Delete
-                </button>
-            </a>
-
-            <a href="/user/edit/{{user.id}}">
-                <button class="btn btn-primary btn-lg btn-block" type="button">
-                    Edit
-                </button>
-            </a>
-            
-    </div>
-
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-    {% endfor %}
-
-</div>
 
 
 

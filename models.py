@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+import datetime
 
 db = SQLAlchemy()
 
@@ -61,6 +62,41 @@ class User(db.Model):
     
     def __repr__(self):
         return f"<User #{self.id}: {self.username}, {self.email}>"
+    
+
+class Post(db.Model):
+    """Posts in the system"""
+
+    __tablename__ = 'posts'
+
+    id = db.Column(
+        db.Integer,
+        primary_key=True,
+    )
+
+    title = db.Column(
+        db.Text,
+        nullable=False,
+    )
+
+    content = db.Column(
+        db.Text,
+        nullable=False,
+    )
+
+    date = db.Column(
+        db.Date,
+        default= datetime.datetime.today(),
+    )
+    
+    user_id = db.Column(
+        db.Integer,
+        db.ForeignKey('users.id', ondelete='CASCADE'),
+        nullable=False,
+    )
+
+    users = db.relationship('User')
+
 
 
 

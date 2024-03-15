@@ -91,3 +91,19 @@ nav form.navbar-form {
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
 }
+
+
+ul {
+    list-style-type: none; /* Remove bullets */
+    color: rgb(18, 21, 39);
+}
+
+
+li {
+    border: 3px solid white;
+    background-color: rgb(141, 214, 141);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20 px;
+    width: 80%;
+}
